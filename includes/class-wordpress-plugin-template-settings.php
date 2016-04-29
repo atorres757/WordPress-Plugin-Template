@@ -96,7 +96,7 @@ class WordPress_Plugin_Template_Settings {
 	 * @return array 		Modified links
 	 */
 	public function add_settings_link ( $links ) {
-		$settings_link = '<a href="options-general.php?page=wordpress_plugin_template_settings">' . __( 'Settings', 'wordpress-plugin-template' ) . '</a>';
+		$settings_link = '<a href="options-general.php?page=' . $this->parent->_token . '_settings">' . __( 'Settings', 'wordpress-plugin-template' ) . '</a>';
   		array_push( $links, $settings_link );
   		return $links;
 	}
@@ -112,7 +112,7 @@ class WordPress_Plugin_Template_Settings {
 			'description'			=> __( 'These are fairly standard form input fields.', 'wordpress-plugin-template' ),
 			'fields'				=> array(
 				array(
-					'id' 			=> $this->base . 'text_field',
+					'id' 			=> 'text_field',
 					'label'			=> __( 'Some Text' , 'wordpress-plugin-template' ),
 					'description'	=> __( 'This is a standard text field.', 'wordpress-plugin-template' ),
 					'type'			=> 'text',
@@ -120,7 +120,7 @@ class WordPress_Plugin_Template_Settings {
 					'placeholder'	=> __( 'Placeholder text', 'wordpress-plugin-template' )
 				),
 				array(
-					'id' 			=> $this->base . 'password_field',
+					'id' 			=> 'password_field',
 					'label'			=> __( 'A Password' , 'wordpress-plugin-template' ),
 					'description'	=> __( 'This is a standard password field.', 'wordpress-plugin-template' ),
 					'type'			=> 'password',
@@ -128,7 +128,7 @@ class WordPress_Plugin_Template_Settings {
 					'placeholder'	=> __( 'Placeholder text', 'wordpress-plugin-template' )
 				),
 				array(
-					'id' 			=> $this->base . 'secret_text_field',
+					'id' 			=> 'secret_text_field',
 					'label'			=> __( 'Some Secret Text' , 'wordpress-plugin-template' ),
 					'description'	=> __( 'This is a secret text field - any data saved here will not be displayed after the page has reloaded, but it will be saved.', 'wordpress-plugin-template' ),
 					'type'			=> 'text_secret',
@@ -136,7 +136,7 @@ class WordPress_Plugin_Template_Settings {
 					'placeholder'	=> __( 'Placeholder text', 'wordpress-plugin-template' )
 				),
 				array(
-					'id' 			=> $this->base . 'text_block',
+					'id' 			=> 'text_block',
 					'label'			=> __( 'A Text Block' , 'wordpress-plugin-template' ),
 					'description'	=> __( 'This is a standard text area.', 'wordpress-plugin-template' ),
 					'type'			=> 'textarea',
@@ -144,14 +144,14 @@ class WordPress_Plugin_Template_Settings {
 					'placeholder'	=> __( 'Placeholder text for this textarea', 'wordpress-plugin-template' )
 				),
 				array(
-					'id' 			=> $this->base . 'single_checkbox',
+					'id' 			=> 'single_checkbox',
 					'label'			=> __( 'An Option', 'wordpress-plugin-template' ),
 					'description'	=> __( 'A standard checkbox - if you save this option as checked then it will store the option as \'on\', otherwise it will be an empty string.', 'wordpress-plugin-template' ),
 					'type'			=> 'checkbox',
 					'default'		=> ''
 				),
 				array(
-					'id' 			=> $this->base . 'select_box',
+					'id' 			=> 'select_box',
 					'label'			=> __( 'A Select Box', 'wordpress-plugin-template' ),
 					'description'	=> __( 'A standard select box.', 'wordpress-plugin-template' ),
 					'type'			=> 'select',
@@ -159,7 +159,7 @@ class WordPress_Plugin_Template_Settings {
 					'default'		=> 'wordpress'
 				),
 				array(
-					'id' 			=> $this->base . 'radio_buttons',
+					'id' 			=> 'radio_buttons',
 					'label'			=> __( 'Some Options', 'wordpress-plugin-template' ),
 					'description'	=> __( 'A standard set of radio buttons.', 'wordpress-plugin-template' ),
 					'type'			=> 'radio',
@@ -167,7 +167,7 @@ class WordPress_Plugin_Template_Settings {
 					'default'		=> 'batman'
 				),
 				array(
-					'id' 			=> $this->base . 'multiple_checkboxes',
+					'id' 			=> 'multiple_checkboxes',
 					'label'			=> __( 'Some Items', 'wordpress-plugin-template' ),
 					'description'	=> __( 'You can select multiple items and they will be stored as an array.', 'wordpress-plugin-template' ),
 					'type'			=> 'checkbox_multi',
@@ -182,7 +182,7 @@ class WordPress_Plugin_Template_Settings {
 			'description'			=> __( 'These are some extra input fields that maybe aren\'t as common as the others.', 'wordpress-plugin-template' ),
 			'fields'				=> array(
 				array(
-					'id' 			=> $this->base . 'number_field',
+					'id' 			=> 'number_field',
 					'label'			=> __( 'A Number' , 'wordpress-plugin-template' ),
 					'description'	=> __( 'This is a standard number field - if this field contains anything other than numbers then the form will not be submitted.', 'wordpress-plugin-template' ),
 					'type'			=> 'number',
@@ -190,14 +190,14 @@ class WordPress_Plugin_Template_Settings {
 					'placeholder'	=> __( '42', 'wordpress-plugin-template' )
 				),
 				array(
-					'id' 			=> $this->base . 'colour_picker',
+					'id' 			=> 'colour_picker',
 					'label'			=> __( 'Pick a colour', 'wordpress-plugin-template' ),
 					'description'	=> __( 'This uses WordPress\' built-in colour picker - the option is stored as the colour\'s hex code.', 'wordpress-plugin-template' ),
 					'type'			=> 'color',
 					'default'		=> '#21759B'
 				),
 				array(
-					'id' 			=> $this->base . 'an_image',
+					'id' 			=> 'an_image',
 					'label'			=> __( 'An Image' , 'wordpress-plugin-template' ),
 					'description'	=> __( 'This will upload an image to your media library and store the attachment ID in the option field. Once you have uploaded an imge the thumbnail will display above these buttons.', 'wordpress-plugin-template' ),
 					'type'			=> 'image',
@@ -205,7 +205,7 @@ class WordPress_Plugin_Template_Settings {
 					'placeholder'	=> ''
 				),
 				array(
-					'id' 			=> $this->base . 'multi_select_box',
+					'id' 			=> 'multi_select_box',
 					'label'			=> __( 'A Multi-Select Box', 'wordpress-plugin-template' ),
 					'description'	=> __( 'A standard multi-select box - the saved data is stored as an array.', 'wordpress-plugin-template' ),
 					'type'			=> 'select_multi',
@@ -225,30 +225,30 @@ class WordPress_Plugin_Template_Settings {
 	 * @return void
 	 */
 	public function register_settings () {
-		if( is_array( $this->settings ) ) {
+		if ( is_array( $this->settings ) ) {
 
 			// Check posted/selected tab
 			$current_section = '';
-			if( isset( $_POST['tab'] ) && $_POST['tab'] ) {
+			if ( isset( $_POST['tab'] ) && $_POST['tab'] ) {
 				$current_section = $_POST['tab'];
 			} else {
-				if( isset( $_GET['tab'] ) && $_GET['tab'] ) {
+				if ( isset( $_GET['tab'] ) && $_GET['tab'] ) {
 					$current_section = $_GET['tab'];
 				}
 			}
 
-			foreach( $this->settings as $section => $data ) {
+			foreach ( $this->settings as $section => $data ) {
 
-				if( $current_section && $current_section != $section ) continue;
+				if ( $current_section && $current_section != $section ) continue;
 
 				// Add section to page
 				add_settings_section( $section, $data['title'], array( $this, 'settings_section' ), $this->parent->_token . '_settings' );
 
-				foreach( $data['fields'] as $field ) {
+				foreach ( $data['fields'] as $field ) {
 
 					// Validation callback for field
 					$validation = '';
-					if( isset( $field['callback'] ) ) {
+					if ( isset( $field['callback'] ) ) {
 						$validation = $field['callback'];
 					}
 
@@ -260,7 +260,7 @@ class WordPress_Plugin_Template_Settings {
 					add_settings_field( $field['id'], $field['label'], array( $this->parent->admin, 'display_field' ), $this->parent->_token . '_settings', $section, array( 'field' => $field, 'prefix' => $this->base ) );
 				}
 
-				if( ! $current_section ) break;
+				if ( ! $current_section ) break;
 			}
 		}
 	}
@@ -281,33 +281,33 @@ class WordPress_Plugin_Template_Settings {
 			$html .= '<h2>' . __( 'Plugin Settings' , 'wordpress-plugin-template' ) . '</h2>' . "\n";
 
 			$tab = '';
-			if( isset( $_GET['tab'] ) && $_GET['tab'] ) {
+			if ( isset( $_GET['tab'] ) && $_GET['tab'] ) {
 				$tab .= $_GET['tab'];
 			}
 
 			// Show page tabs
-			if( is_array( $this->settings ) && 1 < count( $this->settings ) ) {
+			if ( is_array( $this->settings ) && 1 < count( $this->settings ) ) {
 
 				$html .= '<h2 class="nav-tab-wrapper">' . "\n";
 
 				$c = 0;
-				foreach( $this->settings as $section => $data ) {
+				foreach ( $this->settings as $section => $data ) {
 
 					// Set tab class
 					$class = 'nav-tab';
-					if( ! isset( $_GET['tab'] ) ) {
-						if( 0 == $c ) {
+					if ( ! isset( $_GET['tab'] ) ) {
+						if ( 0 == $c ) {
 							$class .= ' nav-tab-active';
 						}
 					} else {
-						if( isset( $_GET['tab'] ) && $section == $_GET['tab'] ) {
+						if ( isset( $_GET['tab'] ) && $section == $_GET['tab'] ) {
 							$class .= ' nav-tab-active';
 						}
 					}
 
 					// Set tab link
 					$tab_link = add_query_arg( array( 'tab' => $section ) );
-					if( isset( $_GET['settings-updated'] ) ) {
+					if ( isset( $_GET['settings-updated'] ) ) {
 						$tab_link = remove_query_arg( 'settings-updated', $tab_link );
 					}
 
@@ -321,18 +321,6 @@ class WordPress_Plugin_Template_Settings {
 			}
 
 			$html .= '<form method="post" action="options.php" enctype="multipart/form-data">' . "\n";
-
-				// Setup navigation
-				// $html .= '<ul id="settings-sections" class="subsubsub hide-if-no-js">' . "\n";
-				// 	$html .= '<li><a class="tab all current" href="#all">' . __( 'All' , 'ss-podcasting' ) . '</a></li>' . "\n";
-
-				// 	foreach( $this->settings as $section => $data ) {
-				// 		$html .= '<li>| <a class="tab" href="#' . $section . '">' . $data['title'] . '</a></li>' . "\n";
-				// 	}
-
-				// $html .= '</ul>' . "\n";
-
-				// $html .= '<div class="clear"></div>' . "\n";
 
 				// Get settings fields
 				ob_start();
